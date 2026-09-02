@@ -1,0 +1,549 @@
+{
+ "rows": [
+  {
+   "id": "quadruped",
+   "label": "Q4",
+   "legs": 4,
+   "species": "(3,3,3,3) hand-designed",
+   "abstract": 7.75,
+   "flat": 11.72,
+   "rubble": 9.7,
+   "ice": 8.5,
+   "stones": 0.22,
+   "rank": {
+    "abstract": 9,
+    "flat": 1,
+    "rubble": 1,
+    "ice": 3,
+    "stones": 17,
+    "ideal": 1
+   },
+   "F_min": 2,
+   "J_min": 6,
+   "faces": [
+    0,
+    3,
+    10,
+    14
+   ],
+   "ideal": 13.5
+  },
+  {
+   "id": "tripod",
+   "label": "T3",
+   "legs": 3,
+   "species": "(4,4,4) hand-designed",
+   "abstract": 11.12,
+   "flat": 5.46,
+   "rubble": 4.06,
+   "ice": 3.57,
+   "stones": 0.32,
+   "rank": {
+    "abstract": 3,
+    "flat": 8,
+    "rubble": 12,
+    "ice": 12,
+    "stones": 16,
+    "ideal": 11
+   },
+   "F_min": 0,
+   "J_min": 0,
+   "faces": [
+    5,
+    11,
+    16
+   ],
+   "ideal": 5.85
+  },
+  {
+   "id": "mixed",
+   "label": "M5",
+   "legs": 5,
+   "species": "(3,3,2,2,2) hand-designed",
+   "abstract": 3.26,
+   "flat": 2.13,
+   "rubble": 2.22,
+   "ice": 1.39,
+   "stones": 0.44,
+   "rank": {
+    "abstract": 15,
+    "flat": 17,
+    "rubble": 17,
+    "ice": 17,
+    "stones": 11,
+    "ideal": 15
+   },
+   "F_min": 2,
+   "J_min": 6,
+   "faces": [
+    0,
+    4,
+    7,
+    10,
+    15
+   ],
+   "ideal": 3.09
+  },
+  {
+   "id": "hexapod",
+   "label": "H6",
+   "legs": 6,
+   "species": "(2,2,2,2,2,2) hand-designed",
+   "abstract": 3.39,
+   "flat": 10.09,
+   "rubble": 9.25,
+   "ice": 8.89,
+   "stones": 2.24,
+   "rank": {
+    "abstract": 14,
+    "flat": 3,
+    "rubble": 3,
+    "ice": 2,
+    "stones": 3,
+    "ideal": 3
+   },
+   "F_min": 2,
+   "J_min": 4,
+   "faces": [
+    0,
+    3,
+    6,
+    10,
+    14,
+    17
+   ],
+   "ideal": 11.88
+  },
+  {
+   "id": "g0_444_0",
+   "label": "A3a",
+   "legs": 3,
+   "species": "(4,4,4)",
+   "abstract": 17.53,
+   "flat": 5.53,
+   "rubble": 4.52,
+   "ice": 1.42,
+   "stones": 0.63,
+   "rank": {
+    "abstract": 1,
+    "flat": 7,
+    "rubble": 11,
+    "ice": 16,
+    "stones": 6,
+    "ideal": 13
+   },
+   "F_min": 2,
+   "J_min": 8,
+   "faces": [
+    1,
+    13,
+    14
+   ],
+   "ideal": 3.68
+  },
+  {
+   "id": "g0_444_1",
+   "label": "A3b",
+   "legs": 3,
+   "species": "(4,4,4)",
+   "abstract": 12.39,
+   "flat": 5.24,
+   "rubble": 4.99,
+   "ice": 1.73,
+   "stones": 0.55,
+   "rank": {
+    "abstract": 2,
+    "flat": 10,
+    "rubble": 10,
+    "ice": 14,
+    "stones": 8,
+    "ideal": 10
+   },
+   "F_min": 1,
+   "J_min": 4,
+   "faces": [
+    1,
+    3,
+    10
+   ],
+   "ideal": 6.42
+  },
+  {
+   "id": "g0_3333_0",
+   "label": "B4a",
+   "legs": 4,
+   "species": "(3,3,3,3)",
+   "abstract": 8.93,
+   "flat": 5.79,
+   "rubble": 5.25,
+   "ice": 3.93,
+   "stones": 0.36,
+   "rank": {
+    "abstract": 5,
+    "flat": 5,
+    "rubble": 7,
+    "ice": 11,
+    "stones": 14,
+    "ideal": 17
+   },
+   "F_min": 1,
+   "J_min": 3,
+   "faces": [
+    2,
+    4,
+    12,
+    18
+   ],
+   "ideal": 2.29
+  },
+  {
+   "id": "g0_3333_1",
+   "label": "B4b",
+   "legs": 4,
+   "species": "(3,3,3,3)",
+   "abstract": 8.82,
+   "flat": 3.31,
+   "rubble": 3.75,
+   "ice": 5.67,
+   "stones": 0.33,
+   "rank": {
+    "abstract": 6,
+    "flat": 14,
+    "rubble": 13,
+    "ice": 9,
+    "stones": 15,
+    "ideal": 9
+   },
+   "F_min": 1,
+   "J_min": 3,
+   "faces": [
+    5,
+    8,
+    11,
+    13
+   ],
+   "ideal": 6.79
+  },
+  {
+   "id": "g0_4332_0",
+   "label": "C4a",
+   "legs": 4,
+   "species": "(4,3,3,2)",
+   "abstract": 8.45,
+   "flat": 2.72,
+   "rubble": 2.96,
+   "ice": 1.12,
+   "stones": 0.39,
+   "rank": {
+    "abstract": 7,
+    "flat": 15,
+    "rubble": 15,
+    "ice": 18,
+    "stones": 13,
+    "ideal": 16
+   },
+   "F_min": 2,
+   "J_min": 6,
+   "faces": [
+    5,
+    12,
+    15,
+    17
+   ],
+   "ideal": 3.05
+  },
+  {
+   "id": "g0_4332_1",
+   "label": "C4b",
+   "legs": 4,
+   "species": "(4,3,3,2)",
+   "abstract": 7.51,
+   "flat": 4.8,
+   "rubble": 5.19,
+   "ice": 6.16,
+   "stones": 0.58,
+   "rank": {
+    "abstract": 10,
+    "flat": 11,
+    "rubble": 8,
+    "ice": 8,
+    "stones": 7,
+    "ideal": 6
+   },
+   "F_min": 1,
+   "J_min": 4,
+   "faces": [
+    1,
+    8,
+    17,
+    18
+   ],
+   "ideal": 8.16
+  },
+  {
+   "id": "g0_4422_0",
+   "label": "D4a",
+   "legs": 4,
+   "species": "(4,4,2,2)",
+   "abstract": 5.9,
+   "flat": 2.26,
+   "rubble": 2.71,
+   "ice": 1.83,
+   "stones": 0.41,
+   "rank": {
+    "abstract": 12,
+    "flat": 16,
+    "rubble": 16,
+    "ice": 13,
+    "stones": 12,
+    "ideal": 12
+   },
+   "F_min": 2,
+   "J_min": 6,
+   "faces": [
+    2,
+    5,
+    9,
+    18
+   ],
+   "ideal": 4.18
+  },
+  {
+   "id": "g0_4422_1",
+   "label": "D4b",
+   "legs": 4,
+   "species": "(4,4,2,2)",
+   "abstract": 9.8,
+   "flat": 5.3,
+   "rubble": 5.17,
+   "ice": 6.49,
+   "stones": 0.45,
+   "rank": {
+    "abstract": 4,
+    "flat": 9,
+    "rubble": 9,
+    "ice": 6,
+    "stones": 10,
+    "ideal": 14
+   },
+   "F_min": 1,
+   "J_min": 8,
+   "faces": [
+    11,
+    13,
+    18,
+    19
+   ],
+   "ideal": 3.49
+  },
+  {
+   "id": "g0_42222_0",
+   "label": "E5a",
+   "legs": 5,
+   "species": "(4,2,2,2,2)",
+   "abstract": 7.84,
+   "flat": 4.44,
+   "rubble": 3.58,
+   "ice": 4.72,
+   "stones": 2.55,
+   "rank": {
+    "abstract": 8,
+    "flat": 12,
+    "rubble": 14,
+    "ice": 10,
+    "stones": 2,
+    "ideal": 5
+   },
+   "F_min": 2,
+   "J_min": 6,
+   "faces": [
+    4,
+    8,
+    17,
+    18,
+    19
+   ],
+   "ideal": 9.87
+  },
+  {
+   "id": "g0_42222_1",
+   "label": "E5b",
+   "legs": 5,
+   "species": "(4,2,2,2,2)",
+   "abstract": 4.11,
+   "flat": 9.45,
+   "rubble": 8.52,
+   "ice": 7.15,
+   "stones": 1.12,
+   "rank": {
+    "abstract": 13,
+    "flat": 4,
+    "rubble": 4,
+    "ice": 5,
+    "stones": 4,
+    "ideal": 4
+   },
+   "F_min": 1,
+   "J_min": 2,
+   "faces": [
+    1,
+    7,
+    8,
+    11,
+    14
+   ],
+   "ideal": 10.43
+  },
+  {
+   "id": "g0_33222_0",
+   "label": "F5a",
+   "legs": 5,
+   "species": "(3,3,2,2,2)",
+   "abstract": 7.27,
+   "flat": 5.64,
+   "rubble": 6.94,
+   "ice": 7.49,
+   "stones": 4.02,
+   "rank": {
+    "abstract": 11,
+    "flat": 6,
+    "rubble": 5,
+    "ice": 4,
+    "stones": 1,
+    "ideal": 8
+   },
+   "F_min": 0,
+   "J_min": 5,
+   "faces": [
+    0,
+    3,
+    5,
+    18,
+    19
+   ],
+   "ideal": 6.94
+  },
+  {
+   "id": "g0_33222_1",
+   "label": "F5b",
+   "legs": 5,
+   "species": "(3,3,2,2,2)",
+   "abstract": 2.8,
+   "flat": 1.47,
+   "rubble": 1.18,
+   "ice": 1.65,
+   "stones": 0.77,
+   "rank": {
+    "abstract": 16,
+    "flat": 18,
+    "rubble": 18,
+    "ice": 15,
+    "stones": 5,
+    "ideal": 18
+   },
+   "F_min": 1,
+   "J_min": 5,
+   "faces": [
+    0,
+    2,
+    3,
+    4,
+    15
+   ],
+   "ideal": 0.46
+  },
+  {
+   "id": "g0_222222_0",
+   "label": "G6a",
+   "legs": 6,
+   "species": "(2,2,2,2,2,2)",
+   "abstract": 0.54,
+   "flat": 10.84,
+   "rubble": 9.62,
+   "ice": 8.95,
+   "stones": 0.54,
+   "rank": {
+    "abstract": 17,
+    "flat": 2,
+    "rubble": 2,
+    "ice": 1,
+    "stones": 9,
+    "ideal": 2
+   },
+   "F_min": 2,
+   "J_min": 4,
+   "faces": [
+    4,
+    8,
+    9,
+    15,
+    16,
+    18
+   ],
+   "ideal": 12.25
+  },
+  {
+   "id": "g0_222222_1",
+   "label": "G6b",
+   "legs": 6,
+   "species": "(2,2,2,2,2,2)",
+   "abstract": 0.13,
+   "flat": 4.39,
+   "rubble": 5.39,
+   "ice": 6.44,
+   "stones": 0.18,
+   "rank": {
+    "abstract": 18,
+    "flat": 13,
+    "rubble": 6,
+    "ice": 7,
+    "stones": 18,
+    "ideal": 7
+   },
+   "F_min": 3,
+   "J_min": 6,
+   "faces": [
+    0,
+    2,
+    3,
+    7,
+    9,
+    19
+   ],
+   "ideal": 7.07
+  }
+ ],
+ "stats": {
+  "rho": {
+   "abstract_vs_flat": 0.11,
+   "p_abstract_vs_flat": 0.66,
+   "flat_vs_rubble": 0.9,
+   "flat_vs_ice": 0.72,
+   "flat_vs_stones": 0.12,
+   "mean_abs_rank_shift": 5.9,
+   "seed_band": [
+    0.67,
+    0.93
+   ],
+   "half_budget": 0.9,
+   "abstract_variants": [
+    0.77,
+    0.97
+   ]
+  },
+  "n_morphologies": 18,
+  "n_runs_campaign": 345,
+  "steps_per_run_M": 197,
+  "gpu_hours_per_run": [
+   0.4,
+   1.4
+  ],
+  "split": {
+   "rho_vs_abstract": -0.296,
+   "p_vs_abstract": 0.233,
+   "rho_vs_flat": 0.614,
+   "p_vs_flat": 0.0067,
+   "note": "18x hw7 geometry + ideal abstract servos (no s2r), single seed, entropy 0.003"
+  }
+ }
+}

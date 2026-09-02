@@ -1,0 +1,20 @@
+{
+"robot": "g0_222222_0_mjx_absvis.xml",
+"bodies": [
+"body",
+"leg_0",
+"seg_0_1",
+"leg_1",
+"seg_1_1",
+"leg_2",
+"seg_2_1",
+"leg_3",
+"seg_3_1",
+"leg_4",
+"seg_4_1",
+"leg_5",
+"seg_5_1"
+],
+"nq": 19,
+"clips": {}
+}

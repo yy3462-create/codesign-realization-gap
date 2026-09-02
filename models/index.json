@@ -1,0 +1,688 @@
+{
+ "variant": "v50vis",
+ "abs_variant": "absvis",
+ "morphologies": [
+  {
+   "id": "quadruped",
+   "label": "Q4",
+   "legs": 4,
+   "species": "(3,3,3,3) hand-designed",
+   "spaces": {
+    "fabricable": {
+     "glb": "quadruped_fab.glb",
+     "meta": "quadruped_fab.json",
+     "clips": {
+      "flat": {
+       "source": "quadruped_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 12.12496566772461,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "quadruped_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 10.379883766174316,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "quadruped_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 9.051539421081543,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "quadruped_abs.glb",
+     "meta": "quadruped_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "tripod",
+   "label": "T3",
+   "legs": 3,
+   "species": "(4,4,4) hand-designed",
+   "spaces": {
+    "fabricable": {
+     "glb": "tripod_fab.glb",
+     "meta": "tripod_fab.json",
+     "clips": {
+      "flat": {
+       "source": "tripod_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 5.731637954711914,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "tripod_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 4.217271327972412,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "tripod_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 3.68560528755188,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "tripod_abs.glb",
+     "meta": "tripod_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "mixed",
+   "label": "M5",
+   "legs": 5,
+   "species": "(3,3,2,2,2) hand-designed",
+   "spaces": {
+    "fabricable": {
+     "glb": "mixed_fab.glb",
+     "meta": "mixed_fab.json",
+     "clips": {
+      "flat": {
+       "source": "mixed_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 1.7673124074935913,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "mixed_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 0.3701067864894867,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "mixed_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 1.3790403604507446,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "mixed_abs.glb",
+     "meta": "mixed_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "hexapod",
+   "label": "H6",
+   "legs": 6,
+   "species": "(2,2,2,2,2,2) hand-designed",
+   "spaces": {
+    "fabricable": {
+     "glb": "hexapod_fab.glb",
+     "meta": "hexapod_fab.json",
+     "clips": {
+      "flat": {
+       "source": "hexapod_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 5.715286731719971,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "hexapod_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 6.955082416534424,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "hexapod_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 6.94553279876709,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "hexapod_abs.glb",
+     "meta": "hexapod_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_444_0",
+   "label": "A3a",
+   "legs": 3,
+   "species": "(4,4,4)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_444_0_fab.glb",
+     "meta": "g0_444_0_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_444_0_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 5.599964618682861,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_444_0_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 4.572336196899414,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_444_0_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 2.436539888381958,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_444_0_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.5639936327934265,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_444_0_abs.glb",
+     "meta": "g0_444_0_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_444_1",
+   "label": "A3b",
+   "legs": 3,
+   "species": "(4,4,4)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_444_1_fab.glb",
+     "meta": "g0_444_1_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_444_1_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 5.516605854034424,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_444_1_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 5.283568859100342,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_444_1_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 1.9886634349822998,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_444_1_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.4151606261730194,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_444_1_abs.glb",
+     "meta": "g0_444_1_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_3333_0",
+   "label": "B4a",
+   "legs": 4,
+   "species": "(3,3,3,3)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_3333_0_fab.glb",
+     "meta": "g0_3333_0_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_3333_0_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 8.164688110351562,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_3333_0_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 5.732692241668701,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_3333_0_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 7.982738971710205,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_3333_0_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.3496096730232239,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_3333_0_abs.glb",
+     "meta": "g0_3333_0_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_3333_1",
+   "label": "B4b",
+   "legs": 4,
+   "species": "(3,3,3,3)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_3333_1_fab.glb",
+     "meta": "g0_3333_1_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_3333_1_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 1.0747849941253662,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_3333_1_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 4.895114421844482,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_3333_1_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 5.378965377807617,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_3333_1_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.2745437026023865,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_3333_1_abs.glb",
+     "meta": "g0_3333_1_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_4332_0",
+   "label": "C4a",
+   "legs": 4,
+   "species": "(4,3,3,2)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_4332_0_fab.glb",
+     "meta": "g0_4332_0_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_4332_0_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 2.8078386783599854,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_4332_0_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 2.9358010292053223,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_4332_0_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 0.6293210983276367,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_4332_0_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.33591198921203613,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_4332_0_abs.glb",
+     "meta": "g0_4332_0_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_4332_1",
+   "label": "C4b",
+   "legs": 4,
+   "species": "(4,3,3,2)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_4332_1_fab.glb",
+     "meta": "g0_4332_1_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_4332_1_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 0.16599474847316742,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_4332_1_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 1.5854955911636353,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_4332_1_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 0.01831979490816593,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_4332_1_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.41016438603401184,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_4332_1_abs.glb",
+     "meta": "g0_4332_1_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_4422_0",
+   "label": "D4a",
+   "legs": 4,
+   "species": "(4,4,2,2)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_4422_0_fab.glb",
+     "meta": "g0_4422_0_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_4422_0_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 2.132108688354492,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_4422_0_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 1.554903507232666,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_4422_0_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 2.1069250106811523,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_4422_0_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.2538301348686218,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_4422_0_abs.glb",
+     "meta": "g0_4422_0_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_4422_1",
+   "label": "D4b",
+   "legs": 4,
+   "species": "(4,4,2,2)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_4422_1_fab.glb",
+     "meta": "g0_4422_1_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_4422_1_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 4.653894424438477,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_4422_1_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 4.7804670333862305,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_4422_1_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 5.885012626647949,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_4422_1_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.23627960681915283,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_4422_1_abs.glb",
+     "meta": "g0_4422_1_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_42222_0",
+   "label": "E5a",
+   "legs": 5,
+   "species": "(4,2,2,2,2)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_42222_0_fab.glb",
+     "meta": "g0_42222_0_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_42222_0_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 4.165265083312988,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_42222_0_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 3.6039950847625732,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_42222_0_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 4.305830955505371,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_42222_0_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 1.5603179931640625,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_42222_0_abs.glb",
+     "meta": "g0_42222_0_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_42222_1",
+   "label": "E5b",
+   "legs": 5,
+   "species": "(4,2,2,2,2)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_42222_1_fab.glb",
+     "meta": "g0_42222_1_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_42222_1_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 8.592569351196289,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_42222_1_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 9.359527587890625,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_42222_1_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 6.028239727020264,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_42222_1_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.8119189143180847,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_42222_1_abs.glb",
+     "meta": "g0_42222_1_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_33222_0",
+   "label": "F5a",
+   "legs": 5,
+   "species": "(3,3,2,2,2)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_33222_0_fab.glb",
+     "meta": "g0_33222_0_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_33222_0_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 6.933143138885498,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_33222_0_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 7.9735260009765625,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_33222_0_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 8.28953742980957,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_33222_0_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 3.6246933937072754,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_33222_0_abs.glb",
+     "meta": "g0_33222_0_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_33222_1",
+   "label": "F5b",
+   "legs": 5,
+   "species": "(3,3,2,2,2)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_33222_1_fab.glb",
+     "meta": "g0_33222_1_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_33222_1_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 2.47654390335083,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_33222_1_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 2.2558627128601074,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_33222_1_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 0.249790757894516,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_33222_1_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.4147697687149048,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_33222_1_abs.glb",
+     "meta": "g0_33222_1_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_222222_0",
+   "label": "G6a",
+   "legs": 6,
+   "species": "(2,2,2,2,2,2)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_222222_0_fab.glb",
+     "meta": "g0_222222_0_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_222222_0_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 5.27036714553833,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_222222_0_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 5.997689723968506,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_222222_0_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 2.6574246883392334,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_222222_0_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.37047871947288513,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_222222_0_abs.glb",
+     "meta": "g0_222222_0_abs.json",
+     "clips": {}
+    }
+   }
+  },
+  {
+   "id": "g0_222222_1",
+   "label": "G6b",
+   "legs": 6,
+   "species": "(2,2,2,2,2,2)",
+   "spaces": {
+    "fabricable": {
+     "glb": "g0_222222_1_fab.glb",
+     "meta": "g0_222222_1_fab.json",
+     "clips": {
+      "flat": {
+       "source": "g0_222222_1_r4d2_hw7s2r_hw7_traj.npz",
+       "displacement_final_m": 4.980040550231934,
+       "seconds": 20.0
+      },
+      "rubble": {
+       "source": "g0_222222_1_r4d2_hw7s2r_hw7_noise30_traj.npz",
+       "displacement_final_m": 5.555350303649902,
+       "seconds": 20.0
+      },
+      "ice": {
+       "source": "g0_222222_1_r4d2_hw7ice_hw7_traj.npz",
+       "displacement_final_m": 6.527473449707031,
+       "seconds": 20.0
+      },
+      "stones": {
+       "source": "g0_222222_1_r4d2_hw7st3_hw7_iso_stones_traj.npz",
+       "displacement_final_m": 0.11677489429712296,
+       "seconds": 20.0
+      }
+     }
+    },
+    "abstract": {
+     "glb": "g0_222222_1_abs.glb",
+     "meta": "g0_222222_1_abs.json",
+     "clips": {}
+    }
+   }
+  }
+ ]
+}

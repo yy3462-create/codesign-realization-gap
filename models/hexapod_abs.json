@@ -1,0 +1,20 @@
+{
+"robot": "hexapod_mjx_absvis.xml",
+"bodies": [
+"body",
+"leg_0",
+"seg_0_1",
+"leg_3",
+"seg_3_1",
+"leg_6",
+"seg_6_1",
+"leg_10",
+"seg_10_1",
+"leg_14",
+"seg_14_1",
+"leg_17",
+"seg_17_1"
+],
+"nq": 19,
+"clips": {}
+}

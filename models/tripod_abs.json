@@ -1,0 +1,20 @@
+{
+"robot": "tripod_mjx_absvis.xml",
+"bodies": [
+"body",
+"leg_5",
+"seg_5_1",
+"seg_5_2",
+"seg_5_3",
+"leg_11",
+"seg_11_1",
+"seg_11_2",
+"seg_11_3",
+"leg_16",
+"seg_16_1",
+"seg_16_2",
+"seg_16_3"
+],
+"nq": 19,
+"clips": {}
+}

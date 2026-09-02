@@ -1,0 +1,20 @@
+{
+"robot": "quadruped_mjx_absvis.xml",
+"bodies": [
+"body",
+"leg_0",
+"seg_0_1",
+"seg_0_2",
+"leg_3",
+"seg_3_1",
+"seg_3_2",
+"leg_10",
+"seg_10_1",
+"seg_10_2",
+"leg_14",
+"seg_14_1",
+"seg_14_2"
+],
+"nq": 19,
+"clips": {}
+}

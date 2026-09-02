@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>thumbnail renderer</title>
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"../vendor/three.module.js","three/addons/":"../vendor/addons/"}}</script>
+</head>
+<body>
+<script type="module">
+// Renders one GLB (rest pose) to a transparent canvas for the gallery thumbnails.
+//   thumb.html?glb=../models/quadruped_fab.glb&w=520&h=390&az=35&el=22&fov=28
+// Driven by render_thumbs.py; sets window.__done = true when the frame is on screen.
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const q = new URLSearchParams(location.search);
+const W = +(q.get('w') || 520), H = +(q.get('h') || 390);
+const az = THREE.MathUtils.degToRad(+(q.get('az') || 35));
+const el = THREE.MathUtils.degToRad(+(q.get('el') || 22));
+const fov = +(q.get('fov') || 28);
+const pad = +(q.get('pad') || 1.12);
+const t = q.get('t');                      // optional: animation clip name + time, e.g. flat@3.2
+const dpr = +(q.get('dpr') || (window.devicePixelRatio || 1));
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(dpr);
+renderer.setSize(W, H);
+renderer.setClearColor(0x000000, 0);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.add(new THREE.HemisphereLight(0xdfe7f2, 0x2a2f36, 0.9));
+const sun = new THREE.DirectionalLight(0xffffff, 2.2);
+sun.position.set(2.5, 4, 1.5); sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+sun.shadow.camera.near = 0.1; sun.shadow.camera.far = 20;
+sun.shadow.camera.left = sun.shadow.camera.bottom = -1.5;
+sun.shadow.camera.right = sun.shadow.camera.top = 1.5;
+sun.shadow.bias = -0.0005;
+scene.add(sun);
+const fill = new THREE.DirectionalLight(0x9fb6d0, 0.5); fill.position.set(-3, 2, -2); scene.add(fill);
+
+// contact shadow only (transparent ground)
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(10, 10), new THREE.ShadowMaterial({ opacity: 0.28 }));
+ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+
+const camera = new THREE.PerspectiveCamera(fov, W / H, 0.01, 100);
+
+new GLTFLoader().load(q.get('glb'), (gltf) => {
+  const robot = gltf.scene;
+  robot.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
+  scene.add(robot);
+  if (t) {
+    const [name, sec] = t.split('@');
+    const clip = gltf.animations.find((c) => c.name === name);
+    if (clip) { const mixer = new THREE.AnimationMixer(robot); const a = mixer.clipAction(clip); a.play(); mixer.update(+sec || 0); }
+  }
+  robot.updateMatrixWorld(true);
+  const box = new THREE.Box3().setFromObject(robot);
+  const c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3());
+  ground.position.set(c.x, box.min.y, c.z);
+  // frame the whole bounding box for this azimuth/elevation
+  const r = 0.5 * Math.hypot(s.x, s.y, s.z);
+  const vfov = THREE.MathUtils.degToRad(fov), hfov = 2 * Math.atan(Math.tan(vfov / 2) * camera.aspect);
+  const dist = pad * r / Math.sin(Math.min(vfov, hfov) / 2);
+  const dir = new THREE.Vector3(Math.cos(el) * Math.sin(az), Math.sin(el), Math.cos(el) * Math.cos(az));
+  const target = c.clone(); target.y = box.min.y + 0.42 * s.y;
+  camera.position.copy(target).add(dir.multiplyScalar(dist));
+  camera.lookAt(target);
+  camera.updateProjectionMatrix();
+  renderer.render(scene, camera);
+  window.__bbox = { size: [s.x, s.y, s.z], center: [c.x, c.y, c.z] };
+  window.__done = true;
+}, undefined, (e) => { window.__error = String(e); });
+</script>
+</body>
+</html>
