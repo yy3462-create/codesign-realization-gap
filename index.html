@@ -92,7 +92,7 @@
     <details class="abstract">
       <summary>Abstract</summary>
       <div>
-      <p>Learning-based co-design methods score candidate robot bodies in a simplified simulator and return a ranked list. We ask how much of that ranking survives when the designs are made buildable. We take 18 morphologies of a modular icosahedral legged robot, sampled from our own evolutionary co-design space, and train each with the same PPO recipe in a replica of the abstract simulator used by the search and in a fabricable simulator calibrated against CAD models and motor datasheets. The two rankings are uncorrelated (ρ<sub>s</sub> = +0.11, p = 0.66; mean rank change 5.9 of 18): the best abstract design drops to 7th, and a design that barely moved in the abstract simulator (0.54 m, 17th) becomes 2nd at 10.8 m. The reshuffle is robust to the training seed (P &lt; 0.01 under resampling), to reward re-weighting and added mass (ρ<sub>s</sub> ≥ 0.77) and to halving the training budget (ρ<sub>s</sub> ≥ 0.90), and it is caused mainly by the changes in geometry, DoF allocation, rest pose and mass rather than by the actuator model (ρ<sub>s</sub> = −0.30 vs. +0.61). Changing the terrain at fixed realization, in contrast, largely preserves the ranking (rubble ρ<sub>s</sub> = 0.90, ice 0.72); only stepping stones reshuffle it as much. We trace the reshuffle to a shell-sliding exploit, to rest poses that penetrate or float above the ground, and to a leg-count advantage that exists only in the abstract simulator. Simulator fidelity should therefore be part of the co-design loop rather than a step after it.</p>
+      <p>Learning-based co-design methods score candidate robot bodies in a simplified simulator and return a ranked list. We ask how much of that ranking survives when the designs are made buildable. We take 18 morphologies of a modular icosahedral legged robot, sampled from our own evolutionary co-design space, and train each with the same PPO recipe in a replica of the abstract simulator used by the search and in a fabricable simulator calibrated against CAD models and motor datasheets. The two rankings are uncorrelated (ρ<sub>s</sub> = +0.11, p = 0.66; mean rank change 5.9 of 18): the best abstract design drops to 7th, and a design that barely moved in the abstract simulator (0.54 m, 17th) becomes 2nd at 10.8 m. The reshuffle is robust to the training seed (P &lt; 0.02 under resampling), to reward re-weighting and added mass (ρ<sub>s</sub> ≥ 0.77) and to halving the training budget (ρ<sub>s</sub> ≥ 0.90), and it is caused mainly by the changes in geometry, DoF allocation, rest pose and mass rather than by the actuator model (ρ<sub>s</sub> = −0.30 vs. +0.61). Changing the terrain at fixed realization, in contrast, largely preserves the ranking (rubble ρ<sub>s</sub> = 0.90, ice 0.72); only stepping stones reshuffle it as much. We trace the reshuffle to a shell-sliding exploit, to rest poses that penetrate or float above the ground, and to a leg-count advantage that exists only in the abstract simulator. Simulator fidelity should therefore be part of the co-design loop rather than a step after it.</p>
       </div>
     </details>
   </div>
@@ -101,7 +101,7 @@
       <div><div class="v brick">0.11</div><div class="k">ρ<sub>s</sub> abstract ↔ fabricable ranking (p = 0.66)</div></div>
       <div><div class="v">5.9 / 18</div><div class="k">mean rank shift at realization</div></div>
       <div><div class="v steel">0.90 · 0.72</div><div class="k">ρ<sub>s</sub> rubble · ice — the environment keeps the ranking</div></div>
-      <div><div class="v">P &lt; 0.01</div><div class="k">reshuffle vs. seed noise (6 × 3 replication)</div></div>
+      <div><div class="v">P &lt; 0.02</div><div class="k">reshuffle vs. seed noise (6 × 3 replication)</div></div>
     </div>
   </div>
 </section>
@@ -421,7 +421,7 @@
 <td class="a">7.75</td><td>9</td>
 <td>13.50</td>
 <td class="f">11.72</td><td>1</td>
-<td>9.70</td><td>8.50</td><td>0.22</td><td>2</td><td>6</td></tr>
+<td>9.70</td><td>8.50</td><td>0.39</td><td>2</td><td>6</td></tr>
 <tr><td>G6a</td><td>(2,2,2,2,2,2)</td><td>6</td>
 <td class="a">0.54</td><td>17</td>
 <td>12.25</td>
@@ -431,7 +431,7 @@
 <td class="a">3.39</td><td>14</td>
 <td>11.88</td>
 <td class="f">10.09</td><td>3</td>
-<td>9.25</td><td>8.89</td><td>2.24</td><td>2</td><td>4</td></tr>
+<td>9.25</td><td>8.89</td><td>1.93</td><td>2</td><td>4</td></tr>
 <tr><td>E5b</td><td>(4,2,2,2,2)</td><td>5</td>
 <td class="a">4.11</td><td>13</td>
 <td>10.43</td>
@@ -456,7 +456,7 @@
 <td class="a">11.12</td><td>3</td>
 <td>5.85</td>
 <td class="f">5.46</td><td>8</td>
-<td>4.06</td><td>3.57</td><td>0.32</td><td>0</td><td>0</td></tr>
+<td>4.06</td><td>3.57</td><td>0.48</td><td>0</td><td>0</td></tr>
 <tr><td>D4b</td><td>(4,4,2,2)</td><td>4</td>
 <td class="a">9.80</td><td>4</td>
 <td>3.49</td>
@@ -501,7 +501,7 @@
 <td class="a">3.26</td><td>15</td>
 <td>3.09</td>
 <td class="f">2.13</td><td>17</td>
-<td>2.22</td><td>1.39</td><td>0.44</td><td>2</td><td>6</td></tr>
+<td>2.22</td><td>1.39</td><td>0.57</td><td>2</td><td>6</td></tr>
 <tr><td>F5b</td><td>(3,3,2,2,2)</td><td>5</td>
 <td class="a">2.80</td><td>16</td>
 <td>0.46</td>

@@ -9,13 +9,13 @@
    "flat": 11.72,
    "rubble": 9.7,
    "ice": 8.5,
-   "stones": 0.22,
+   "stones": 0.39,
    "rank": {
     "abstract": 9,
     "flat": 1,
     "rubble": 1,
     "ice": 3,
-    "stones": 17,
+    "stones": 14,
     "ideal": 1
    },
    "F_min": 2,
@@ -37,13 +37,13 @@
    "flat": 5.46,
    "rubble": 4.06,
    "ice": 3.57,
-   "stones": 0.32,
+   "stones": 0.48,
    "rank": {
     "abstract": 3,
     "flat": 8,
     "rubble": 12,
     "ice": 12,
-    "stones": 16,
+    "stones": 11,
     "ideal": 11
    },
    "F_min": 0,
@@ -64,13 +64,13 @@
    "flat": 2.13,
    "rubble": 2.22,
    "ice": 1.39,
-   "stones": 0.44,
+   "stones": 0.57,
    "rank": {
     "abstract": 15,
     "flat": 17,
     "rubble": 17,
     "ice": 17,
-    "stones": 11,
+    "stones": 8,
     "ideal": 15
    },
    "F_min": 2,
@@ -93,7 +93,7 @@
    "flat": 10.09,
    "rubble": 9.25,
    "ice": 8.89,
-   "stones": 2.24,
+   "stones": 1.93,
    "rank": {
     "abstract": 14,
     "flat": 3,
@@ -156,7 +156,7 @@
     "flat": 10,
     "rubble": 10,
     "ice": 14,
-    "stones": 8,
+    "stones": 9,
     "ideal": 10
    },
    "F_min": 1,
@@ -183,7 +183,7 @@
     "flat": 5,
     "rubble": 7,
     "ice": 11,
-    "stones": 14,
+    "stones": 16,
     "ideal": 17
    },
    "F_min": 1,
@@ -211,7 +211,7 @@
     "flat": 14,
     "rubble": 13,
     "ice": 9,
-    "stones": 15,
+    "stones": 17,
     "ideal": 9
    },
    "F_min": 1,
@@ -239,7 +239,7 @@
     "flat": 15,
     "rubble": 15,
     "ice": 18,
-    "stones": 13,
+    "stones": 15,
     "ideal": 16
    },
    "F_min": 2,
@@ -295,7 +295,7 @@
     "flat": 16,
     "rubble": 16,
     "ice": 13,
-    "stones": 12,
+    "stones": 13,
     "ideal": 12
    },
    "F_min": 2,
@@ -323,7 +323,7 @@
     "flat": 9,
     "rubble": 9,
     "ice": 6,
-    "stones": 10,
+    "stones": 12,
     "ideal": 14
    },
    "F_min": 1,
@@ -467,7 +467,7 @@
     "flat": 2,
     "rubble": 2,
     "ice": 1,
-    "stones": 9,
+    "stones": 10,
     "ideal": 2
    },
    "F_min": 2,
@@ -544,6 +544,39 @@
    "rho_vs_flat": 0.614,
    "p_vs_flat": 0.0067,
    "note": "18x hw7 geometry + ideal abstract servos (no s2r), single seed, entropy 0.003"
+  },
+  "stones_rho_flat": {
+   "rho": 0.166,
+   "p": 0.51,
+   "note": "four baselines from the clean hw7st3b re-runs (stage S)"
+  },
+  "seed_noise": {
+   "fabricable": {
+    "cv_median": 0.125,
+    "cv_range": [
+     0.03,
+     0.63
+    ],
+    "seed_pair_rho": [
+     0.77,
+     0.89
+    ]
+   },
+   "abstract": {
+    "cv_median": 0.242,
+    "cv_range": [
+     0.02,
+     0.39
+    ],
+    "seed_pair_rho": [
+     0.83,
+     0.89
+    ]
+   },
+   "two_noise_null_P": {
+    "median": "<1e-4",
+    "worst": 0.019
+   }
   }
  }
 }
