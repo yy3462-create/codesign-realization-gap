@@ -13,7 +13,7 @@ Clip discovery (per morphology R), fabricable space:
   flat    videos/{R}_r4d2_hw7h2_hw7_traj.npz          (re-solved home)  else  {R}_r4d2_hw7s2r_hw7_traj.npz
   rubble  videos/{R}_r4d2_hw7h2_hw7_noise30_traj.npz                    else  {R}_r4d2_hw7s2r_hw7_noise30_traj.npz
   ice     videos/{R}_r4d2_hw7h2ice_hw7_traj.npz                          else  {R}_r4d2_hw7ice_hw7_traj.npz
-  stones  videos/{R}_r4d2_hw7st3_hw7_iso_stones_traj.npz
+  stones  videos/{R}_r4d2_hw7st3b_hw7_iso_stones_traj.npz  (4 baselines, ranking reward)  else  {R}_r4d2_hw7st3_hw7_iso_stones_traj.npz
 Abstract space: videos/{R}_r4d2_d25m_traj.npz (quadruped: {R}_r4d2_d25m_sci_traj.npz) -> label "flat".
 Missing clips are simply skipped; the GLB then only carries the rest pose. Re-run after
 record_icos.py produced new trajectories — models/index.json lists what each GLB contains.
@@ -54,7 +54,7 @@ def clips_for(videos, R, space):
         c = {"flat": first_existing(videos, f"{R}_r4d2_hw7h2_hw7_traj.npz", f"{R}_r4d2_hw7s2r_hw7_traj.npz"),
              "rubble": first_existing(videos, f"{R}_r4d2_hw7h2_hw7_noise30_traj.npz", f"{R}_r4d2_hw7s2r_hw7_noise30_traj.npz"),
              "ice": first_existing(videos, f"{R}_r4d2_hw7h2ice_hw7_traj.npz", f"{R}_r4d2_hw7ice_hw7_traj.npz"),
-             "stones": first_existing(videos, f"{R}_r4d2_hw7st3_hw7_iso_stones_traj.npz")}
+             "stones": first_existing(videos, f"{R}_r4d2_hw7st3b_hw7_iso_stones_traj.npz", f"{R}_r4d2_hw7st3_hw7_iso_stones_traj.npz")}
     else:
         c = {"flat": first_existing(videos, f"{R}_r4d2_d25m_sci_traj.npz" if R == "quadruped" else f"{R}_r4d2_d25m_traj.npz")}
     return {k: v for k, v in c.items() if v}
