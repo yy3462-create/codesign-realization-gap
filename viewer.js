@@ -143,7 +143,7 @@ const loader = new GLTFLoader();
 const tmp = new THREE.Vector3(), prev = new THREE.Vector3();
 let robot = null, mixer = null, action = null, baseNode = null, meta = null, clipLen = 0;
 let pathLine = null, startMarker = null;
-const state = { morph: null, space: 'fabricable', env: 'flat', playing: true, speed: 1, follow: true };
+const state = { morph: null, space: 'abstract', env: 'flat', playing: true, speed: 1, follow: true };
 const index = await getJSON('models/index.json');
 const results = await getJSON('data/results.json');
 const byId = Object.fromEntries(results.rows.map((r) => [r.id, r]));
@@ -246,6 +246,7 @@ function step(d) {
   morphSel.value = ids[i]; show(ids[i], state.space, state.env);
 }
 document.querySelectorAll('.controls [data-space]').forEach((b) => b.addEventListener('click', () => {
+  if (b.disabled) return;          // fabricable-space clips are pending the current hardware build
   document.querySelectorAll('.controls [data-space]').forEach((x) => x.setAttribute('aria-pressed', x === b));
   show(state.morph, b.dataset.space, state.env, true);
 }));
@@ -281,12 +282,8 @@ function updateUI(entry, available, ok) {
   const finalD = meta.clips[state.env] ? meta.clips[state.env].displacement_final_m.toFixed(2) + ' m' : '—';
   const roFinal = $('#ro-final'); if (roFinal) roFinal.textContent = finalD;
   $('#ro-paper').textContent = row ? `${row[state.space === 'fabricable' ? (state.env === 'flat' ? 'flat' : state.env) : 'abstract'].toFixed(2)} m` : '—';
-  $('#viewer-note').textContent = ok ? '' :
-    (state.space === 'abstract' ? 'Rest pose only — abstract-space trajectories are queued for recording.' : 'No trajectory recorded for this environment yet; showing the rest pose.');
-  const stonesNote = (state.env === 'stones') ? ' Stepping-stone layout is illustrative (same stone size and gaps; the training run’s random offsets are not recoverable).' : '';
-  const h2Note = (state.space === 'fabricable' && meta.clips[state.env] && !meta.clips[state.env].npz.includes('h2')) && ['hexapod','g0_444_0','g0_3333_0','g0_4332_1','g0_4422_0','g0_33222_0','g0_33222_1','g0_222222_0'].includes(entry.id)
-    ? ' Recorded before the home-keyframe fix; the paper’s number for this design comes from the re-solved run.' : '';
-  $('#viewer-note').textContent += stonesNote + h2Note;
+  $('#viewer-note').textContent = ok ? '' : 'No trajectory recorded for this environment yet; showing the rest pose.';
+  if (state.env === 'stones') $('#viewer-note').textContent += ' Stepping-stone layout is illustrative (same stone size and gaps; the training run’s random offsets are not recoverable).';
 }
 
 // ---------------------------------------------------------------- loop
@@ -322,13 +319,13 @@ function animate() {
 }
 const first = new URLSearchParams(location.search);
 morphSel.value = first.get('m') || 'quadruped';
-await show(morphSel.value, 'fabricable', first.get('env') || 'flat');
+await show(morphSel.value, 'abstract', first.get('env') || 'flat');
 animate();
 window.__viewer = { camera, controls, get base() { return baseNode; }, state, get prev() { return prev; }, V3: THREE.Vector3 };
 
 // gallery cards -> viewer: each half of a card is one (morphology, design space)
 document.querySelectorAll('.half[data-morph]').forEach((h) => h.addEventListener('click', () => {
-  const space = h.dataset.space || state.space;
+  const space = (h.dataset.space && index.morphologies.find((m) => m.id === h.dataset.morph).spaces[h.dataset.space]) ? h.dataset.space : state.space;
   document.querySelectorAll('.controls [data-space]').forEach((x) => x.setAttribute('aria-pressed', x.dataset.space === space));
   morphSel.value = h.dataset.morph; show(h.dataset.morph, space, state.env);
   document.querySelector('.viewer-shell').scrollIntoView({ behavior: 'smooth', block: 'start' });

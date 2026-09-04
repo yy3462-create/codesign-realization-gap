@@ -32,22 +32,24 @@ BIBTEX = """@inproceedings{icos2026realization,
 }"""
 # -----------------------------------------------------------------------------
 
-# 20 s training-time rollouts, re-encoded to 960 px / 25 fps for the web (originals in genesis_rl/videos/).
-# (file stem in media/, heading, caption)
-VIDEOS = [
-    ("g0_444_0_r4d2_d25m", "A · abstract",
-     "A sampled (4,4,4) body in the abstract simulator: <b>17.53 m</b> in 20 s, the best of the 18."),
-    ("g0_444_0_r4d2_hw7s2r_hw7", "A · fabricable",
-     "The same body built out of real parts: <b>5.42 m</b>. Same reward, same budget, same 20 s."),
-    ("quadruped_r4d2_hw7s2r_hw7", "Q4 · fabricable",
-     "The hand-designed quadruped, fabricable: <b>11.72 m</b> — it loses to A in the abstract space and beats it here."),
-    ("hexapod_r4d2_hw7s2r_hw7", "H6 · fabricable",
-     "The hand-designed hexapod, fabricable: <b>5.60 m</b>."),
-    ("g0_444_0_r4d2_hw7s2r_hw7_noise30", "A · rubble",
-     "A on rubble (±30 mm fractal noise): <b>4.47 m</b>."),
-    ("g0_444_0_r4d2_hw7s2r_hw7_iso_stones", "A · stepping stones",
-     "A on discrete footholds: <b>3.99 m</b>."),
+# 20 s training-time rollouts of the abstract-space models, rendered in MuJoCo from the recorded
+# trajectories (tools/render_mujoco_clips.py; 960 px / 25 fps).  (morphology id, lead phrase) — the numbers
+# are filled in from data/results.json so the captions cannot drift from the table.
+VIDEO_PICKS = [
+    ("g0_444_0",    "A sampled (4,4,4) body, the best of the 18 in the abstract space"),
+    ("g0_444_1",    "The second (4,4,4) sample"),
+    ("quadruped",   "The hand-designed quadruped"),
+    ("hexapod",     "The hand-designed hexapod"),
+    ("g0_222222_0", "A sampled (2,2,2,2,2,2) body that barely moves here"),
+    ("g0_42222_1",  "A sampled (4,2,2,2,2) body"),
 ]
+def video_stem(i):
+    return f"{i}_r4d2_d25m_sci_mujoco" if i == "quadruped" else f"{i}_r4d2_d25m_mujoco"
+def video_caption(i, lead):
+    r = by_id[i]; ra, rf = r["rank"]["abstract"], r["rank"]["flat"]
+    return (f'{lead}: <b>{r["abstract"]:.1f} m</b> in 20 s, rank {ra} of 18 — '
+            f'realized as a printable robot it does <b>{r["flat"]:.1f} m</b>, rank {rf}.')
+VIDEOS = [(video_stem(i), f'{by_id[i]["label"]} · abstract', video_caption(i, lead)) for i, lead in VIDEO_PICKS]
 ICON_PDF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5zM8 13h8v1.5H8V13zm0 3.5h8V18H8v-1.5z"/></svg>'
 ICON_GH = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>'
 ICON_CITE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6A4.5 4.5 0 0 0 2 10.5V18h7v-7H5.5a2 2 0 0 1 2-2H8V6H6.5zm10 0A4.5 4.5 0 0 0 12 10.5V18h7v-7h-3.5a2 2 0 0 1 2-2H18V6h-1.5z"/></svg>'
@@ -77,16 +79,13 @@ def card(r):
     i = r["id"]; ra, rf = r["rank"]["abstract"], r["rank"]["flat"]
     return f'''<div class="card" data-morph="{i}">
   <div class="lbl"><b>{r["label"]}</b><span class="sp">{species_short(r["species"])} · {r["legs"]} legs</span>{rank_chip(ra, rf)}</div>
-  <div class="pairs">
-    <button class="half abs" type="button" data-morph="{i}" data-space="abstract" title="{r["label"]} in the abstract simulator — load in the viewer (rest pose)">
-      <span class="thumb"><img src="figs/thumbs/{i}_abs.webp" alt="{r["label"]} as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
-      <span class="stat"><b>{r["abstract"]:.1f} m</b><span>rank {ra}</span></span>
-    </button>
+  <button class="half abs" type="button" data-morph="{i}" data-space="abstract" title="{r["label"]} in the abstract simulator — load in the viewer">
+    <span class="thumb"><img src="figs/thumbs/{i}_abs.webp" alt="{r["label"]} as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+  </button>
+  <div class="pairs stats">
+    <span class="stat abs" title="abstract simulator, flat ground"><b>{r["abstract"]:.1f} m</b><span>rank {ra}</span></span>
     <span class="arrow" aria-hidden="true">→</span>
-    <button class="half fab" type="button" data-morph="{i}" data-space="fabricable" title="{r["label"]} as a fabricable robot — load in the viewer">
-      <span class="thumb"><img src="figs/thumbs/{i}_fab.webp" alt="{r["label"]} as a fabricable robot" width="640" height="480" loading="lazy" decoding="async"></span>
-      <span class="stat"><b>{r["flat"]:.1f} m</b><span>rank {rf}</span></span>
-    </button>
+    <span class="stat fab" title="fabricable robot, flat ground (the paper\'s printable module build)"><b>{r["flat"]:.1f} m</b><span>rank {rf}</span></span>
   </div>
 </div>'''
 
@@ -158,17 +157,14 @@ HTML = '''<!doctype html>
         <div class="group">
           <span class="small">Design space</span>
           <div class="seg" role="group" aria-label="Design space">
-            <button type="button" class="space-fab" data-space="fabricable" aria-pressed="true">Fabricable</button>
-            <button type="button" class="space-abs" data-space="abstract" aria-pressed="false">Abstract</button>
+            <button type="button" class="space-abs" data-space="abstract" aria-pressed="true">Abstract</button>
+            <button type="button" class="space-fab" data-space="fabricable" aria-pressed="false" disabled title="Pending — the current hardware build is still being trained">Fabricable</button>
           </div>
         </div>
         <div class="group">
           <span class="small">Environment</span>
-          <div class="seg" role="group" aria-label="Environment">
+          <div class="seg" role="group" aria-label="Environment" style="width: max-content" title="The abstract line was trained on flat ground only">
             <button type="button" data-env="flat" aria-pressed="true">Flat</button>
-            <button type="button" data-env="rubble" aria-pressed="false">Rubble</button>
-            <button type="button" data-env="ice" aria-pressed="false">Ice</button>
-            <button type="button" data-env="stones" aria-pressed="false">Stones</button>
           </div>
         </div>
         <div class="wide">
@@ -190,7 +186,7 @@ HTML = '''<!doctype html>
         <div class="note" id="viewer-note" style="grid-column: 1 / -1"></div>
       </div>
     </div>
-    <p class="viewer-caption">Training-time trajectories of all 18 morphologies replayed through MuJoCo forward kinematics · 20 s clips · 4 environments · fabricable bodies drawn with the current leg design (v50: 4 printed parts + 3 × XM430 per leg, same joint layout as the trained model), abstract bodies as the proxies that simulator computes with (capsule links, lumped joint masses)</p>
+    <p class="viewer-caption">Training-time trajectories of all 18 morphologies in the abstract simulator, replayed through MuJoCo forward kinematics · 20 s clips · bodies drawn as the proxies that simulator computes with (capsule links, lumped joint masses) · fabricable-space clips will follow once the current hardware build is trained</p>
   </div>
 </header>
 
@@ -239,8 +235,8 @@ HTML = '''<!doctype html>
 
 <section id="videos">
   <div class="wrap">
-    <h2>The same body, before and after realization</h2>
-    <p class="sub">Training-time rollouts, 20 s each, at the policy that entered the ranking. The top row is the reshuffle in one picture: a sampled body that wins the abstract space by a wide margin, the same body once it is made of real parts, and the hand-designed quadruped that overtakes it there.</p>
+    <h2>Inside the abstract simulator</h2>
+    <p class="sub">Training-time rollouts, 20 s each, at the policy that entered the ranking — the recorded trajectories rendered in MuJoCo on the abstract-space models. Each caption says what became of the same body once it was realized: the sampled bodies that win here fall down the list, the hand-designed quadruped and hexapod climb it.</p>
     <div class="figs three">
 @@VIDEOS@@
     </div>
@@ -249,8 +245,8 @@ HTML = '''<!doctype html>
 
 <section id="morphologies">
   <div class="wrap">
-    <h2>The 18 morphologies, in both simulators</h2>
-    <p class="sub"><span class="brick-t">Left: as the abstract simulator sees it</span> → <span class="steel-t">right: as a fabricable robot</span> · 20 s displacement and rank of 18 · ordered by abstract rank · click either side to load it in the viewer</p>
+    <h2>The 18 morphologies</h2>
+    <p class="sub">Each body as the abstract simulator sees it · 20 s displacement and rank of 18, <span class="brick-t">abstract</span> → <span class="steel-t">fabricable</span> · ordered by abstract rank · click a card to load it in the viewer</p>
     <div class="gallery" id="gallery">
 @@CARDS@@
     </div>
@@ -305,7 +301,7 @@ HTML = '''<!doctype html>
 
 <footer>
   <div class="wrap">
-    <p>Viewer clips are training-time recordings replayed through MuJoCo forward kinematics on the current leg CAD (v50; identical joint frames to the trained hw7 model); the rubble is the exact seed-0 heightfield, the stepping-stone layout is illustrative.</p>
+    <p>Viewer and video clips are training-time recordings of the abstract-space models, replayed through MuJoCo forward kinematics (viewer) or rendered in MuJoCo (videos). Fabricable-space numbers are the paper's printable module build; its clips are pending the current hardware build.</p>
     <p>Morphologies from the <a href="https://github.com/jl6017/mujoco_playground">ICOS co-design EA</a> (MuJoCo MJX) · trained in <a href="https://github.com/Genesis-Embodied-AI/genesis-world">Genesis</a> with rsl-rl PPO · built @@DATE@@</p>
   </div>
 </footer>

@@ -178,6 +178,9 @@ figcaption .key { display: block; margin-top: 4px; font-family: "IBM Plex Mono",
 .card .stat { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; padding: 5px 9px 7px; font-family: "IBM Plex Mono", monospace; font-size: .74rem; color: var(--muted); border-top: 1px solid var(--rule); }
 .card .stat b { font-weight: 500; font-size: .84rem; }
 .card .half.abs .stat b { color: var(--brick); } .card .half.fab .stat b { color: var(--steel); }
+.card .pairs.stats { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.card .pairs.stats .stat { border-top: 0; background: var(--panel); border-radius: 9px; padding: 6px 9px 7px; cursor: help; }
+.card .pairs.stats .stat.abs b { color: var(--brick); } .card .pairs.stats .stat.fab b { color: var(--steel); }
 @media (max-width: 960px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } }
 
