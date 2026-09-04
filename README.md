@@ -1,7 +1,7 @@
 # Project page — "Co-Design Rankings Do Not Survive Realization"
 
 Static site (no build step, no framework): `index.html` + `site.css` + `viewer.js`, Three.js vendored
-in `vendor/`, one GLB per morphology and design space in `models/`, figures in `figs/`.
+in `vendor/`, one GLB per morphology and design space in `models/`, figures in `figs/`, and six re-encoded rollout clips in `media/`.
 The 3D viewer replays the *training-time trajectories* (`genesis_rl/videos/*_traj.npz`, written by
 `record_icos.py`) through MuJoCo forward kinematics; nothing is re-simulated in the browser.
 
@@ -21,12 +21,12 @@ each). Nothing is loaded from third-party hosts except the Google Fonts styleshe
 ## Updating the animations when new trajectories arrive
 
 `models/index.json` lists, per morphology and space, which clips exist and which run they came from.
-Right now (2026-09-01):
+Right now (2026-09-03, after the `record` stage of `genesis_rl/run_honest_gaps.sh`):
 
 | space | flat | rubble | ice | stones |
 |---|---|---|---|---|
-| fabricable | 18/18 (`hw7s2r`; the 8 re-solved-home `hw7h2` runs are **not** recorded yet (g0_4422_1's hw7h2 dirs exist but are empty — never trained)) | 18/18 | 18/18 | 14/18 (the 4 baselines' `hw7st3` runs were never recorded) |
-| abstract | 0/18 (rest pose only) | — | — | — |
+| fabricable | 18/18 | 18/18 | 18/18 | 18/18 |
+| abstract | 18/18 | — | — | — |
 
 1. Record the missing clips on the Mac (Genesis, `gtest` env; each takes ~1–2 min):
    ```bash
