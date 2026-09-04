@@ -32,6 +32,22 @@ BIBTEX = """@inproceedings{icos2026realization,
 }"""
 # -----------------------------------------------------------------------------
 
+# 20 s training-time rollouts, re-encoded to 960 px / 25 fps for the web (originals in genesis_rl/videos/).
+# (file stem in media/, heading, caption)
+VIDEOS = [
+    ("g0_444_0_r4d2_d25m", "A · abstract",
+     "A sampled (4,4,4) body in the abstract simulator: <b>17.53 m</b> in 20 s, the best of the 18."),
+    ("g0_444_0_r4d2_hw7s2r_hw7", "A · fabricable",
+     "The same body built out of real parts: <b>5.42 m</b>. Same reward, same budget, same 20 s."),
+    ("quadruped_r4d2_hw7s2r_hw7", "Q4 · fabricable",
+     "The hand-designed quadruped, fabricable: <b>11.72 m</b> — it loses to A in the abstract space and beats it here."),
+    ("hexapod_r4d2_hw7s2r_hw7", "H6 · fabricable",
+     "The hand-designed hexapod, fabricable: <b>5.60 m</b>."),
+    ("g0_444_0_r4d2_hw7s2r_hw7_noise30", "A · rubble",
+     "A on rubble (±30 mm fractal noise): <b>4.47 m</b>."),
+    ("g0_444_0_r4d2_hw7s2r_hw7_iso_stones", "A · stepping stones",
+     "A on discrete footholds: <b>3.99 m</b>."),
+]
 ICON_PDF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5zM8 13h8v1.5H8V13zm0 3.5h8V18H8v-1.5z"/></svg>'
 ICON_GH = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>'
 ICON_CITE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6A4.5 4.5 0 0 0 2 10.5V18h7v-7H5.5a2 2 0 0 1 2-2H8V6H6.5zm10 0A4.5 4.5 0 0 0 12 10.5V18h7v-7h-3.5a2 2 0 0 1 2-2H18V6h-1.5z"/></svg>'
@@ -47,6 +63,15 @@ def rank_chip(a, f):
     if d < -2: return f'<span class="chip down" title="rank {a} in the abstract space → {f} fabricable">↓{-d}</span>'
     return f'<span class="chip" title="rank {a} in the abstract space → {f} fabricable">·{abs(d)}</span>'
 
+
+def video_fig(v):
+    stem, head, cap = v
+    return ('      <figure class="card-fig">\n'
+            f'        <video controls muted loop playsinline preload="metadata" aria-label="{head}">\n'
+            f'          <source src="media/{stem}.mp4" type="video/mp4">\n'
+            '        </video>\n'
+            f'        <figcaption>{cap}<span class="key">{stem}.mp4</span></figcaption>\n'
+            '      </figure>')
 
 def card(r):
     i = r["id"]; ra, rf = r["rank"]["abstract"], r["rank"]["flat"]
@@ -212,6 +237,16 @@ HTML = '''<!doctype html>
   </div>
 </section>
 
+<section id="videos">
+  <div class="wrap">
+    <h2>The same body, before and after realization</h2>
+    <p class="sub">Training-time rollouts, 20 s each, at the policy that entered the ranking. The top row is the reshuffle in one picture: a sampled body that wins the abstract space by a wide margin, the same body once it is made of real parts, and the hand-designed quadruped that overtakes it there.</p>
+    <div class="figs three">
+@@VIDEOS@@
+    </div>
+  </div>
+</section>
+
 <section id="morphologies">
   <div class="wrap">
     <h2>The 18 morphologies, in both simulators</h2>
@@ -304,7 +339,7 @@ document.getElementById('copy-bib').addEventListener('click', async (e) => {
 
 for k, v in {"TITLE": TITLE, "SUBTITLE": SUBTITLE, "VENUE": VENUE, "AUTHORS": authors, "AFFILS": affils,
              "PAPER_URL": PAPER_URL, "CODE_URL": CODE_URL, "ICON_PDF": ICON_PDF, "ICON_GH": ICON_GH,
-             "ICON_CITE": ICON_CITE, "CARDS": cards, "ROWS": trs, "BIBTEX": bib_html,
+             "ICON_CITE": ICON_CITE, "CARDS": cards, "VIDEOS": "\n".join(video_fig(v) for v in VIDEOS), "ROWS": trs, "BIBTEX": bib_html,
              "DATE": datetime.date.today().isoformat()}.items():
     HTML = HTML.replace(f"@@{k}@@", v)
 assert "@@" not in HTML, "unfilled placeholder"

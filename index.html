@@ -129,6 +129,51 @@
   </div>
 </section>
 
+<section id="videos">
+  <div class="wrap">
+    <h2>The same body, before and after realization</h2>
+    <p class="sub">Training-time rollouts, 20 s each, at the policy that entered the ranking. The top row is the reshuffle in one picture: a sampled body that wins the abstract space by a wide margin, the same body once it is made of real parts, and the hand-designed quadruped that overtakes it there.</p>
+    <div class="figs three">
+      <figure class="card-fig">
+        <video controls muted loop playsinline preload="metadata" aria-label="A · abstract">
+          <source src="media/g0_444_0_r4d2_d25m.mp4" type="video/mp4">
+        </video>
+        <figcaption>A sampled (4,4,4) body in the abstract simulator: <b>17.53 m</b> in 20 s, the best of the 18.<span class="key">g0_444_0_r4d2_d25m.mp4</span></figcaption>
+      </figure>
+      <figure class="card-fig">
+        <video controls muted loop playsinline preload="metadata" aria-label="A · fabricable">
+          <source src="media/g0_444_0_r4d2_hw7s2r_hw7.mp4" type="video/mp4">
+        </video>
+        <figcaption>The same body built out of real parts: <b>5.42 m</b>. Same reward, same budget, same 20 s.<span class="key">g0_444_0_r4d2_hw7s2r_hw7.mp4</span></figcaption>
+      </figure>
+      <figure class="card-fig">
+        <video controls muted loop playsinline preload="metadata" aria-label="Q4 · fabricable">
+          <source src="media/quadruped_r4d2_hw7s2r_hw7.mp4" type="video/mp4">
+        </video>
+        <figcaption>The hand-designed quadruped, fabricable: <b>11.72 m</b> — it loses to A in the abstract space and beats it here.<span class="key">quadruped_r4d2_hw7s2r_hw7.mp4</span></figcaption>
+      </figure>
+      <figure class="card-fig">
+        <video controls muted loop playsinline preload="metadata" aria-label="H6 · fabricable">
+          <source src="media/hexapod_r4d2_hw7s2r_hw7.mp4" type="video/mp4">
+        </video>
+        <figcaption>The hand-designed hexapod, fabricable: <b>5.60 m</b>.<span class="key">hexapod_r4d2_hw7s2r_hw7.mp4</span></figcaption>
+      </figure>
+      <figure class="card-fig">
+        <video controls muted loop playsinline preload="metadata" aria-label="A · rubble">
+          <source src="media/g0_444_0_r4d2_hw7s2r_hw7_noise30.mp4" type="video/mp4">
+        </video>
+        <figcaption>A on rubble (±30 mm fractal noise): <b>4.47 m</b>.<span class="key">g0_444_0_r4d2_hw7s2r_hw7_noise30.mp4</span></figcaption>
+      </figure>
+      <figure class="card-fig">
+        <video controls muted loop playsinline preload="metadata" aria-label="A · stepping stones">
+          <source src="media/g0_444_0_r4d2_hw7s2r_hw7_iso_stones.mp4" type="video/mp4">
+        </video>
+        <figcaption>A on discrete footholds: <b>3.99 m</b>.<span class="key">g0_444_0_r4d2_hw7s2r_hw7_iso_stones.mp4</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <section id="morphologies">
   <div class="wrap">
     <h2>The 18 morphologies, in both simulators</h2>
@@ -534,7 +579,7 @@
 <footer>
   <div class="wrap">
     <p>Viewer clips are training-time recordings replayed through MuJoCo forward kinematics on the current leg CAD (v50; identical joint frames to the trained hw7 model); the rubble is the exact seed-0 heightfield, the stepping-stone layout is illustrative.</p>
-    <p>Morphologies from the <a href="https://github.com/jl6017/mujoco_playground">ICOS co-design EA</a> (MuJoCo MJX) · trained in <a href="https://github.com/Genesis-Embodied-AI/genesis-world">Genesis</a> with rsl-rl PPO · built 2026-09-03</p>
+    <p>Morphologies from the <a href="https://github.com/jl6017/mujoco_playground">ICOS co-design EA</a> (MuJoCo MJX) · trained in <a href="https://github.com/Genesis-Embodied-AI/genesis-world">Genesis</a> with rsl-rl PPO · built 2026-09-04</p>
   </div>
 </footer>
 

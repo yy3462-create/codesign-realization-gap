@@ -150,6 +150,11 @@ figure { margin: 0; }
 .figs.two { grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: start; }
 figure img { width: 100%; height: auto; display: block; background: #fff; border-radius: 8px; }
 figure.card-fig img { border: 1px solid var(--rule); padding: 8px; }
+figure video { width: 100%; height: auto; display: block; background: #000; border-radius: 8px; }
+figure.card-fig video { border: 1px solid var(--rule); }
+.figs.three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 900px) { .figs.three { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .figs.three { grid-template-columns: 1fr; } }
 figcaption { font-size: .86rem; color: var(--muted); margin-top: 12px; text-align: center; text-wrap: pretty; }
 figcaption .key { display: block; margin-top: 4px; font-family: "IBM Plex Mono", monospace; font-size: .7rem; letter-spacing: .02em; }
 @media (max-width: 720px) { .figs.two { grid-template-columns: 1fr; } }
