@@ -48,6 +48,19 @@ To publish: repo Settings → Pages → Source **Deploy from a branch** → bran
 silently drops anything whose path starts with `_`). Total size ≈ 27 MB, largest file 3.6 MB, both far
 under the Pages limits. Nothing is loaded from third-party hosts except the Google Fonts stylesheet.
 
+**Cache-busting.** `build_site.py` hashes every asset the page references (`asset_version()`) and
+appends `?v=<10 hex>` to each URL it writes — stylesheet, module script, figures, thumbnails, clips,
+paper. `viewer.js` reads that stamp back off its own `import.meta.url` and passes it to everything it
+fetches at runtime (`models/index.json`, the GLBs and their `.json` siblings, `data/results.json`,
+the terrain fields), so a single stamp covers the whole page.
+
+This is not cosmetic. Pages caches each file independently, so without it a returning visitor can pair
+a cached `viewer.js` with a freshly fetched `models/index.json`: the old code asks for
+`models/<id>_fab.glb`, which the abstract-only rebuild deleted, the load rejects, and the viewer sits
+on "loading model…" forever while the rest of the page looks normal. Reproduced before the fix, gone
+after. Any asset change moves the stamp, so that pairing can no longer happen — but a visitor still
+holding an `index.html` cached from before this commit needs one hard reload (⇧⌘R / Ctrl-F5) to escape.
+
 Note that this repo is public, so enabling Pages publishes the paper PDF, the models and the clips
 along with it.
 

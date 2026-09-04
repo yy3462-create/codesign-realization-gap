@@ -7,12 +7,30 @@ The gallery cards and the results table are static HTML (the page reads without 
 the 3D viewer is viewer.js. Thumbnails come from render_thumbs.py (figs/thumbs/<id>_{fab,abs}.webp).
 Author names, links and the BibTeX are the constants right below — edit them here and re-run.
 """
-import json, os, datetime
+import json, os, datetime, hashlib
+
+def asset_version(site):
+    """Short content hash over everything index.html points at — changes whenever any asset does."""
+    h = hashlib.sha1()
+    files = ["viewer.js", "site.css", "data/results.json", "models/index.json"]
+    for d in ("models", "figs", "figs/thumbs", "media"):
+        p = os.path.join(site, d)
+        if os.path.isdir(p):
+            files += sorted(os.path.join(d, f) for f in os.listdir(p) if not f.startswith("."))
+    for f in files:
+        fp = os.path.join(site, f)
+        if os.path.isfile(fp):
+            h.update(f.encode())
+            with open(fp, "rb") as fh:
+                for chunk in iter(lambda: fh.read(1 << 20), b""):
+                    h.update(chunk)
+    return h.hexdigest()[:10]
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(HERE, "..")
 R = json.load(open(os.path.join(SITE, "data", "results.json")))
 rows = R["rows"]
+VERSION = asset_version(SITE)          # cache-buster; see asset_version() above
 by_id = {r["id"]: r for r in rows}
 
 # ----------------------------------------------------------------------------- edit these
@@ -70,7 +88,7 @@ def video_fig(v):
     stem, head, cap = v
     return ('      <figure class="card-fig">\n'
             f'        <video controls muted loop playsinline preload="metadata" aria-label="{head}">\n'
-            f'          <source src="media/{stem}.mp4" type="video/mp4">\n'
+            f'          <source src="media/{stem}.mp4?v={VERSION}" type="video/mp4">\n'
             '        </video>\n'
             f'        <figcaption>{cap}<span class="key">{stem}.mp4</span></figcaption>\n'
             '      </figure>')
@@ -80,7 +98,7 @@ def card(r):
     return f'''<div class="card" data-morph="{i}">
   <div class="lbl"><b>{r["label"]}</b><span class="sp">{species_short(r["species"])} · {r["legs"]} legs</span>{rank_chip(ra, rf)}</div>
   <button class="half abs" type="button" data-morph="{i}" data-space="abstract" title="{r["label"]} in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/{i}_abs.webp" alt="{r["label"]} as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/{i}_abs.webp?v={VERSION}" alt="{r["label"]} as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>{r["abstract"]:.1f} m</b><span>rank {ra}</span></span>
@@ -116,7 +134,7 @@ HTML = '''<!doctype html>
 <meta property="og:description" content="@@SUBTITLE@@">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;650;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=@@VERSION@@">
 <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script>
 </head>
 <body>
@@ -216,16 +234,16 @@ HTML = '''<!doctype html>
     <p class="sub">Rank of each of the 18 bodies after training in the abstract simulator vs. as a fabricable robot — then across terrains.</p>
     <div class="figs">
       <figure class="card-fig" style="max-width:660px;margin:0 auto">
-        <img src="figs/fig_slope.png" alt="Slope graph: rank of 18 morphologies in the abstract space versus the fabricable space; lines cross heavily" width="1005" height="480">
+        <img src="figs/fig_slope.png?v=@@VERSION@@" alt="Slope graph: rank of 18 morphologies in the abstract space versus the fabricable space; lines cross heavily" width="1005" height="480">
         <figcaption>Abstract flat-ground rank → fabricable rank. <span class="key">Q/T/M/H hand-designed · A–G species (4,4,4)…(2,2,2,2,2,2), samples a/b · digit = legs</span></figcaption>
       </figure>
       <div class="figs two">
         <figure class="card-fig">
-          <img src="figs/fig_rho_a.png" alt="Bar chart of Spearman rank correlations with the fabricable flat ranking: design space 0.11, stepping stones 0.12, ice 0.72, rubble 0.90" width="1237" height="345">
+          <img src="figs/fig_rho_a.png?v=@@VERSION@@" alt="Bar chart of Spearman rank correlations with the fabricable flat ranking: design space 0.11, stepping stones 0.12, ice 0.72, rubble 0.90" width="1237" height="345">
           <figcaption>Realization sits far outside the seed-noise band (0.89–0.98 from a clean-recipe 6 × 3 seed replication); rubble sits inside it, ice just below — only discrete footholds reshuffle like realization.</figcaption>
         </figure>
         <figure class="card-fig">
-          <img src="figs/fig_rho_b.png" alt="Bar chart of median performance retention per leg count on rubble, ice and stepping stones" width="865" height="345">
+          <img src="figs/fig_rho_b.png?v=@@VERSION@@" alt="Bar chart of median performance retention per leg count on rubble, ice and stepping stones" width="865" height="345">
           <figcaption>The leg-count advantage is environment-conditional.</figcaption>
         </figure>
       </div>
@@ -328,15 +346,15 @@ document.getElementById('copy-bib').addEventListener('click', async (e) => {
   setTimeout(() => { e.target.textContent = 'Copy'; }, 1600);
 });
 </script>
-<script type="module" src="viewer.js"></script>
+<script type="module" src="viewer.js?v=@@VERSION@@"></script>
 </body>
 </html>
 '''
 
 for k, v in {"TITLE": TITLE, "SUBTITLE": SUBTITLE, "VENUE": VENUE, "AUTHORS": authors, "AFFILS": affils,
-             "PAPER_URL": PAPER_URL, "CODE_URL": CODE_URL, "ICON_PDF": ICON_PDF, "ICON_GH": ICON_GH,
+             "PAPER_URL": PAPER_URL + (f"?v={VERSION}" if not PAPER_URL.startswith("http") else ""), "CODE_URL": CODE_URL, "ICON_PDF": ICON_PDF, "ICON_GH": ICON_GH,
              "ICON_CITE": ICON_CITE, "CARDS": cards, "VIDEOS": "\n".join(video_fig(v) for v in VIDEOS), "ROWS": trs, "BIBTEX": bib_html,
-             "DATE": datetime.date.today().isoformat()}.items():
+             "DATE": datetime.date.today().isoformat(), "VERSION": VERSION}.items():
     HTML = HTML.replace(f"@@{k}@@", v)
 assert "@@" not in HTML, "unfilled placeholder"
 open(os.path.join(SITE, "index.html"), "w").write(HTML)

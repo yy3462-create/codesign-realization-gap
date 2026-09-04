@@ -8,8 +8,12 @@ const ENVS = ['flat', 'rubble', 'ice', 'stones'];
 const ENV_LABEL = { flat: 'Flat ground', rubble: 'Rubble · 30 mm', ice: 'Ice · μ 0.05–0.2', stones: 'Stepping stones' };
 const $ = (s) => document.querySelector(s);
 const EMBED = window.__EMBED || null;
-const getJSON = async (p) => (EMBED && EMBED[p]) ? EMBED[p] : (await fetch(p)).json();
-const assetURL = (p) => (EMBED && EMBED[p]) ? EMBED[p] : p;
+// index.html loads us as viewer.js?v=<stamp>; pass the same stamp to everything we fetch, so a
+// browser can never pair a cached viewer.js with a newer models/index.json (or the reverse).
+const V = new URL(import.meta.url).searchParams.get('v');
+const bust = (p) => V ? `${p}${p.includes('?') ? '&' : '?'}v=${V}` : p;
+const getJSON = async (p) => (EMBED && EMBED[p]) ? EMBED[p] : (await fetch(bust(p))).json();
+const assetURL = (p) => (EMBED && EMBED[p]) ? EMBED[p] : bust(p);
 
 // ---------------------------------------------------------------- scene
 const viewport = $('#viewport');

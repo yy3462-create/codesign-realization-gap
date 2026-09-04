@@ -9,7 +9,7 @@
 <meta property="og:description" content="An 18-morphology, 4-environment study on a modular icosahedral legged robot">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;650;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=2eec492db2">
 <script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/":"./vendor/addons/"}}</script>
 </head>
 <body>
@@ -22,7 +22,7 @@
     <p class="authors"><a href="#">Jiong Lin<sup>1</sup></a> · <a href="#">Yue Yao<sup>1</sup></a> · <a href="#">Hod Lipson<sup>1</sup></a></p>
     <p class="affil"><sup>1</sup>Creative Machines Lab, Columbia University</p>
     <div class="actions">
-      <a class="btn" href="paper.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5zM8 13h8v1.5H8V13zm0 3.5h8V18H8v-1.5z"/></svg>Paper</a>
+      <a class="btn" href="paper.pdf?v=2eec492db2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5zM8 13h8v1.5H8V13zm0 3.5h8V18H8v-1.5z"/></svg>Paper</a>
       <a class="btn" href="https://github.com/jl6017/mujoco_playground/tree/IROS_workshop/icos/hardware_line"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>Code</a>
       <a class="btn" href="#bibtex"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6A4.5 4.5 0 0 0 2 10.5V18h7v-7H5.5a2 2 0 0 1 2-2H8V6H6.5zm10 0A4.5 4.5 0 0 0 12 10.5V18h7v-7h-3.5a2 2 0 0 1 2-2H18V6h-1.5z"/></svg>BibTeX</a>
     </div>
@@ -109,16 +109,16 @@
     <p class="sub">Rank of each of the 18 bodies after training in the abstract simulator vs. as a fabricable robot — then across terrains.</p>
     <div class="figs">
       <figure class="card-fig" style="max-width:660px;margin:0 auto">
-        <img src="figs/fig_slope.png" alt="Slope graph: rank of 18 morphologies in the abstract space versus the fabricable space; lines cross heavily" width="1005" height="480">
+        <img src="figs/fig_slope.png?v=2eec492db2" alt="Slope graph: rank of 18 morphologies in the abstract space versus the fabricable space; lines cross heavily" width="1005" height="480">
         <figcaption>Abstract flat-ground rank → fabricable rank. <span class="key">Q/T/M/H hand-designed · A–G species (4,4,4)…(2,2,2,2,2,2), samples a/b · digit = legs</span></figcaption>
       </figure>
       <div class="figs two">
         <figure class="card-fig">
-          <img src="figs/fig_rho_a.png" alt="Bar chart of Spearman rank correlations with the fabricable flat ranking: design space 0.11, stepping stones 0.12, ice 0.72, rubble 0.90" width="1237" height="345">
+          <img src="figs/fig_rho_a.png?v=2eec492db2" alt="Bar chart of Spearman rank correlations with the fabricable flat ranking: design space 0.11, stepping stones 0.12, ice 0.72, rubble 0.90" width="1237" height="345">
           <figcaption>Realization sits far outside the seed-noise band (0.89–0.98 from a clean-recipe 6 × 3 seed replication); rubble sits inside it, ice just below — only discrete footholds reshuffle like realization.</figcaption>
         </figure>
         <figure class="card-fig">
-          <img src="figs/fig_rho_b.png" alt="Bar chart of median performance retention per leg count on rubble, ice and stepping stones" width="865" height="345">
+          <img src="figs/fig_rho_b.png?v=2eec492db2" alt="Bar chart of median performance retention per leg count on rubble, ice and stepping stones" width="865" height="345">
           <figcaption>The leg-count advantage is environment-conditional.</figcaption>
         </figure>
       </div>
@@ -133,37 +133,37 @@
     <div class="figs three">
       <figure class="card-fig">
         <video controls muted loop playsinline preload="metadata" aria-label="A3a · abstract">
-          <source src="media/g0_444_0_r4d2_d25m_mujoco.mp4" type="video/mp4">
+          <source src="media/g0_444_0_r4d2_d25m_mujoco.mp4?v=2eec492db2" type="video/mp4">
         </video>
         <figcaption>A sampled (4,4,4) body, the best of the 18 in the abstract space: <b>17.5 m</b> in 20 s, rank 1 of 18 — realized as a printable robot it does <b>5.5 m</b>, rank 7.<span class="key">g0_444_0_r4d2_d25m_mujoco.mp4</span></figcaption>
       </figure>
       <figure class="card-fig">
         <video controls muted loop playsinline preload="metadata" aria-label="A3b · abstract">
-          <source src="media/g0_444_1_r4d2_d25m_mujoco.mp4" type="video/mp4">
+          <source src="media/g0_444_1_r4d2_d25m_mujoco.mp4?v=2eec492db2" type="video/mp4">
         </video>
         <figcaption>The second (4,4,4) sample: <b>12.4 m</b> in 20 s, rank 2 of 18 — realized as a printable robot it does <b>5.2 m</b>, rank 10.<span class="key">g0_444_1_r4d2_d25m_mujoco.mp4</span></figcaption>
       </figure>
       <figure class="card-fig">
         <video controls muted loop playsinline preload="metadata" aria-label="Q4 · abstract">
-          <source src="media/quadruped_r4d2_d25m_sci_mujoco.mp4" type="video/mp4">
+          <source src="media/quadruped_r4d2_d25m_sci_mujoco.mp4?v=2eec492db2" type="video/mp4">
         </video>
         <figcaption>The hand-designed quadruped: <b>7.8 m</b> in 20 s, rank 9 of 18 — realized as a printable robot it does <b>11.7 m</b>, rank 1.<span class="key">quadruped_r4d2_d25m_sci_mujoco.mp4</span></figcaption>
       </figure>
       <figure class="card-fig">
         <video controls muted loop playsinline preload="metadata" aria-label="H6 · abstract">
-          <source src="media/hexapod_r4d2_d25m_mujoco.mp4" type="video/mp4">
+          <source src="media/hexapod_r4d2_d25m_mujoco.mp4?v=2eec492db2" type="video/mp4">
         </video>
         <figcaption>The hand-designed hexapod: <b>3.4 m</b> in 20 s, rank 14 of 18 — realized as a printable robot it does <b>10.1 m</b>, rank 3.<span class="key">hexapod_r4d2_d25m_mujoco.mp4</span></figcaption>
       </figure>
       <figure class="card-fig">
         <video controls muted loop playsinline preload="metadata" aria-label="G6a · abstract">
-          <source src="media/g0_222222_0_r4d2_d25m_mujoco.mp4" type="video/mp4">
+          <source src="media/g0_222222_0_r4d2_d25m_mujoco.mp4?v=2eec492db2" type="video/mp4">
         </video>
         <figcaption>A sampled (2,2,2,2,2,2) body that barely moves here: <b>0.5 m</b> in 20 s, rank 17 of 18 — realized as a printable robot it does <b>10.8 m</b>, rank 2.<span class="key">g0_222222_0_r4d2_d25m_mujoco.mp4</span></figcaption>
       </figure>
       <figure class="card-fig">
         <video controls muted loop playsinline preload="metadata" aria-label="E5b · abstract">
-          <source src="media/g0_42222_1_r4d2_d25m_mujoco.mp4" type="video/mp4">
+          <source src="media/g0_42222_1_r4d2_d25m_mujoco.mp4?v=2eec492db2" type="video/mp4">
         </video>
         <figcaption>A sampled (4,2,2,2,2) body: <b>4.1 m</b> in 20 s, rank 13 of 18 — realized as a printable robot it does <b>9.4 m</b>, rank 4.<span class="key">g0_42222_1_r4d2_d25m_mujoco.mp4</span></figcaption>
       </figure>
@@ -179,7 +179,7 @@
 <div class="card" data-morph="g0_444_0">
   <div class="lbl"><b>A3a</b><span class="sp">(4,4,4) · 3 legs</span><span class="chip down" title="rank 1 in the abstract space → 7 fabricable">↓6</span></div>
   <button class="half abs" type="button" data-morph="g0_444_0" data-space="abstract" title="A3a in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_444_0_abs.webp" alt="A3a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_444_0_abs.webp?v=2eec492db2" alt="A3a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>17.5 m</b><span>rank 1</span></span>
@@ -190,7 +190,7 @@
 <div class="card" data-morph="g0_444_1">
   <div class="lbl"><b>A3b</b><span class="sp">(4,4,4) · 3 legs</span><span class="chip down" title="rank 2 in the abstract space → 10 fabricable">↓8</span></div>
   <button class="half abs" type="button" data-morph="g0_444_1" data-space="abstract" title="A3b in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_444_1_abs.webp" alt="A3b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_444_1_abs.webp?v=2eec492db2" alt="A3b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>12.4 m</b><span>rank 2</span></span>
@@ -201,7 +201,7 @@
 <div class="card" data-morph="tripod">
   <div class="lbl"><b>T3</b><span class="sp">(4,4,4) · 3 legs</span><span class="chip down" title="rank 3 in the abstract space → 8 fabricable">↓5</span></div>
   <button class="half abs" type="button" data-morph="tripod" data-space="abstract" title="T3 in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/tripod_abs.webp" alt="T3 as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/tripod_abs.webp?v=2eec492db2" alt="T3 as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>11.1 m</b><span>rank 3</span></span>
@@ -212,7 +212,7 @@
 <div class="card" data-morph="g0_4422_1">
   <div class="lbl"><b>D4b</b><span class="sp">(4,4,2,2) · 4 legs</span><span class="chip down" title="rank 4 in the abstract space → 9 fabricable">↓5</span></div>
   <button class="half abs" type="button" data-morph="g0_4422_1" data-space="abstract" title="D4b in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_4422_1_abs.webp" alt="D4b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_4422_1_abs.webp?v=2eec492db2" alt="D4b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>9.8 m</b><span>rank 4</span></span>
@@ -223,7 +223,7 @@
 <div class="card" data-morph="g0_3333_0">
   <div class="lbl"><b>B4a</b><span class="sp">(3,3,3,3) · 4 legs</span><span class="chip" title="rank 5 in the abstract space → 5 fabricable">·0</span></div>
   <button class="half abs" type="button" data-morph="g0_3333_0" data-space="abstract" title="B4a in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_3333_0_abs.webp" alt="B4a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_3333_0_abs.webp?v=2eec492db2" alt="B4a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>8.9 m</b><span>rank 5</span></span>
@@ -234,7 +234,7 @@
 <div class="card" data-morph="g0_3333_1">
   <div class="lbl"><b>B4b</b><span class="sp">(3,3,3,3) · 4 legs</span><span class="chip down" title="rank 6 in the abstract space → 14 fabricable">↓8</span></div>
   <button class="half abs" type="button" data-morph="g0_3333_1" data-space="abstract" title="B4b in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_3333_1_abs.webp" alt="B4b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_3333_1_abs.webp?v=2eec492db2" alt="B4b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>8.8 m</b><span>rank 6</span></span>
@@ -245,7 +245,7 @@
 <div class="card" data-morph="g0_4332_0">
   <div class="lbl"><b>C4a</b><span class="sp">(4,3,3,2) · 4 legs</span><span class="chip down" title="rank 7 in the abstract space → 15 fabricable">↓8</span></div>
   <button class="half abs" type="button" data-morph="g0_4332_0" data-space="abstract" title="C4a in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_4332_0_abs.webp" alt="C4a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_4332_0_abs.webp?v=2eec492db2" alt="C4a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>8.4 m</b><span>rank 7</span></span>
@@ -256,7 +256,7 @@
 <div class="card" data-morph="g0_42222_0">
   <div class="lbl"><b>E5a</b><span class="sp">(4,2,2,2,2) · 5 legs</span><span class="chip down" title="rank 8 in the abstract space → 12 fabricable">↓4</span></div>
   <button class="half abs" type="button" data-morph="g0_42222_0" data-space="abstract" title="E5a in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_42222_0_abs.webp" alt="E5a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_42222_0_abs.webp?v=2eec492db2" alt="E5a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>7.8 m</b><span>rank 8</span></span>
@@ -267,7 +267,7 @@
 <div class="card" data-morph="quadruped">
   <div class="lbl"><b>Q4</b><span class="sp">(3,3,3,3) · 4 legs</span><span class="chip up" title="rank 9 in the abstract space → 1 fabricable">↑8</span></div>
   <button class="half abs" type="button" data-morph="quadruped" data-space="abstract" title="Q4 in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/quadruped_abs.webp" alt="Q4 as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/quadruped_abs.webp?v=2eec492db2" alt="Q4 as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>7.8 m</b><span>rank 9</span></span>
@@ -278,7 +278,7 @@
 <div class="card" data-morph="g0_4332_1">
   <div class="lbl"><b>C4b</b><span class="sp">(4,3,3,2) · 4 legs</span><span class="chip" title="rank 10 in the abstract space → 11 fabricable">·1</span></div>
   <button class="half abs" type="button" data-morph="g0_4332_1" data-space="abstract" title="C4b in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_4332_1_abs.webp" alt="C4b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_4332_1_abs.webp?v=2eec492db2" alt="C4b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>7.5 m</b><span>rank 10</span></span>
@@ -289,7 +289,7 @@
 <div class="card" data-morph="g0_33222_0">
   <div class="lbl"><b>F5a</b><span class="sp">(3,3,2,2,2) · 5 legs</span><span class="chip up" title="rank 11 in the abstract space → 6 fabricable">↑5</span></div>
   <button class="half abs" type="button" data-morph="g0_33222_0" data-space="abstract" title="F5a in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_33222_0_abs.webp" alt="F5a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_33222_0_abs.webp?v=2eec492db2" alt="F5a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>7.3 m</b><span>rank 11</span></span>
@@ -300,7 +300,7 @@
 <div class="card" data-morph="g0_4422_0">
   <div class="lbl"><b>D4a</b><span class="sp">(4,4,2,2) · 4 legs</span><span class="chip down" title="rank 12 in the abstract space → 16 fabricable">↓4</span></div>
   <button class="half abs" type="button" data-morph="g0_4422_0" data-space="abstract" title="D4a in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_4422_0_abs.webp" alt="D4a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_4422_0_abs.webp?v=2eec492db2" alt="D4a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>5.9 m</b><span>rank 12</span></span>
@@ -311,7 +311,7 @@
 <div class="card" data-morph="g0_42222_1">
   <div class="lbl"><b>E5b</b><span class="sp">(4,2,2,2,2) · 5 legs</span><span class="chip up" title="rank 13 in the abstract space → 4 fabricable">↑9</span></div>
   <button class="half abs" type="button" data-morph="g0_42222_1" data-space="abstract" title="E5b in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_42222_1_abs.webp" alt="E5b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_42222_1_abs.webp?v=2eec492db2" alt="E5b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>4.1 m</b><span>rank 13</span></span>
@@ -322,7 +322,7 @@
 <div class="card" data-morph="hexapod">
   <div class="lbl"><b>H6</b><span class="sp">(2,2,2,2,2,2) · 6 legs</span><span class="chip up" title="rank 14 in the abstract space → 3 fabricable">↑11</span></div>
   <button class="half abs" type="button" data-morph="hexapod" data-space="abstract" title="H6 in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/hexapod_abs.webp" alt="H6 as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/hexapod_abs.webp?v=2eec492db2" alt="H6 as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>3.4 m</b><span>rank 14</span></span>
@@ -333,7 +333,7 @@
 <div class="card" data-morph="mixed">
   <div class="lbl"><b>M5</b><span class="sp">(3,3,2,2,2) · 5 legs</span><span class="chip" title="rank 15 in the abstract space → 17 fabricable">·2</span></div>
   <button class="half abs" type="button" data-morph="mixed" data-space="abstract" title="M5 in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/mixed_abs.webp" alt="M5 as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/mixed_abs.webp?v=2eec492db2" alt="M5 as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>3.3 m</b><span>rank 15</span></span>
@@ -344,7 +344,7 @@
 <div class="card" data-morph="g0_33222_1">
   <div class="lbl"><b>F5b</b><span class="sp">(3,3,2,2,2) · 5 legs</span><span class="chip" title="rank 16 in the abstract space → 18 fabricable">·2</span></div>
   <button class="half abs" type="button" data-morph="g0_33222_1" data-space="abstract" title="F5b in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_33222_1_abs.webp" alt="F5b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_33222_1_abs.webp?v=2eec492db2" alt="F5b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>2.8 m</b><span>rank 16</span></span>
@@ -355,7 +355,7 @@
 <div class="card" data-morph="g0_222222_0">
   <div class="lbl"><b>G6a</b><span class="sp">(2,2,2,2,2,2) · 6 legs</span><span class="chip up" title="rank 17 in the abstract space → 2 fabricable">↑15</span></div>
   <button class="half abs" type="button" data-morph="g0_222222_0" data-space="abstract" title="G6a in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_222222_0_abs.webp" alt="G6a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_222222_0_abs.webp?v=2eec492db2" alt="G6a as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>0.5 m</b><span>rank 17</span></span>
@@ -366,7 +366,7 @@
 <div class="card" data-morph="g0_222222_1">
   <div class="lbl"><b>G6b</b><span class="sp">(2,2,2,2,2,2) · 6 legs</span><span class="chip up" title="rank 18 in the abstract space → 13 fabricable">↑5</span></div>
   <button class="half abs" type="button" data-morph="g0_222222_1" data-space="abstract" title="G6b in the abstract simulator — load in the viewer">
-    <span class="thumb"><img src="figs/thumbs/g0_222222_1_abs.webp" alt="G6b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
+    <span class="thumb"><img src="figs/thumbs/g0_222222_1_abs.webp?v=2eec492db2" alt="G6b as the abstract simulator sees it" width="640" height="480" loading="lazy" decoding="async"></span>
   </button>
   <div class="pairs stats">
     <span class="stat abs" title="abstract simulator, flat ground"><b>0.1 m</b><span>rank 18</span></span>
@@ -548,6 +548,6 @@ document.getElementById('copy-bib').addEventListener('click', async (e) => {
   setTimeout(() => { e.target.textContent = 'Copy'; }, 1600);
 });
 </script>
-<script type="module" src="viewer.js"></script>
+<script type="module" src="viewer.js?v=2eec492db2"></script>
 </body>
 </html>
