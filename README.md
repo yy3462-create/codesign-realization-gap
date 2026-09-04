@@ -1,6 +1,8 @@
 # Project page — "Co-Design Rankings Do Not Survive Realization"
 
-Live at https://yy3462-create.github.io/codesign-realization-gap/ (GitHub Pages, branch `main`, root).
+**Not deployed yet.** GitHub Pages has never been enabled on this repo, so
+https://yy3462-create.github.io/codesign-realization-gap/ currently returns 404. See *Deploy* below --
+it is one setting away. Until then the only way to see the page is to serve it locally.
 
 Static site (no build step, no framework): `index.html` + `site.css` + `viewer.js`, Three.js vendored
 in `vendor/`, one GLB per morphology in `models/`, figures in `figs/`, and six MuJoCo-rendered rollout
@@ -40,9 +42,14 @@ cd website && python3 -m http.server 8000     # then open http://localhost:8000
 
 ## Deploy
 
-GitHub Pages is enabled on this repo (Settings → Pages → deploy from `main` / root); every push to
-`main` redeploys in about a minute. Total size ≈ 25 MB. Nothing is loaded from third-party hosts except
-the Google Fonts stylesheet.
+To publish: repo Settings → Pages → Source **Deploy from a branch** → branch **`main`**, folder
+**`/ (root)`** → Save. The first build takes about a minute; after that every push to `main` redeploys.
+`.nojekyll` is committed so Pages copies the tree verbatim instead of running Jekyll over it (Jekyll
+silently drops anything whose path starts with `_`). Total size ≈ 27 MB, largest file 3.6 MB, both far
+under the Pages limits. Nothing is loaded from third-party hosts except the Google Fonts stylesheet.
+
+Note that this repo is public, so enabling Pages publishes the paper PDF, the models and the clips
+along with it.
 
 ## Rebuilding
 
